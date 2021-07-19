@@ -9,27 +9,28 @@ import "ocidl.idl";
 
 [
 	object,
-	uuid(2c6c75bc-6969-4787-9318-11e874c1eb8c),
+	uuid(DE4972AA-53A3-40DA-9721-47631521682C),
 	pointer_default(unique),
 	oleautomation
+
 ]
 interface IMessage : IUnknown
 {
 	HRESULT Print([in] BSTR strMsg);
 };
 [
-	uuid(6c6592db-7ebb-4e30-badd-22d26305eca5),
+	uuid(55BC07C1-5362-4E94-9759-C4CB866FC153),
 	version(1.0),
 ]
 library DllSurrogatesLib
 {
 	importlib("stdole2.tlb");
 	[
-		uuid(064468a5-f878-4a10-8e2e-d70bdfd00b23)
+		uuid(CA287451-6B99-47A0-BF9A-344742E72D3D)
 	]
 	coclass Message
 	{
-		[default] interface IMessage;
+		interface IMessage;
 	};
 };
 
