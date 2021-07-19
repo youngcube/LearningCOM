@@ -22,6 +22,7 @@ interface IMessage : IUnknown
 ]
 library AsynchronousCallLib
 {
+	interface IMessage;
 	importlib("stdole2.tlb");
 	[
 		uuid(3df50dd4-f6da-4553-84ff-74254b06642d)

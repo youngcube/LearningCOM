@@ -7,8 +7,8 @@
 /* at Tue Jan 19 11:14:07 2038
  */
 /* Compiler settings for ConnectionPoint.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
-    protocol : dce , ms_ext, c_ext, robust
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+    protocol : all , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
@@ -16,7 +16,7 @@
 */
 /* @@MIDL_FILE_HEADING(  ) */
 
-#if !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_)
+#if defined(_M_AMD64)
 
 
 #if _MSC_VER >= 1200
@@ -27,9 +27,6 @@
 #pragma warning( disable: 4232 )  /* dllimport identity*/
 #pragma warning( disable: 4024 )  /* array to pointer mapping*/
 #pragma warning( disable: 4152 )  /* function/data pointer conversion in expression */
-#pragma warning( disable: 4100 ) /* unreferenced arguments in x86 call */
-
-#pragma optimize("", off ) 
 
 #define USE_STUBLESS_PROXY
 
@@ -41,6 +38,7 @@
 
 
 #include "rpcproxy.h"
+#include "ndr64types.h"
 #ifndef __RPCPROXY_H_VERSION__
 #error this stub requires an updated version of <rpcproxy.h>
 #endif /* __RPCPROXY_H_VERSION__ */
@@ -49,7 +47,7 @@
 #include "ConnectionPoint_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   3                                 
-#define PROC_FORMAT_STRING_SIZE   31                                
+#define PROC_FORMAT_STRING_SIZE   33                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   0            
@@ -76,6 +74,10 @@ typedef struct _ConnectionPoint_MIDL_EXPR_FORMAT_STRING
 static const RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax = 
 {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}};
 
+static const RPC_SYNTAX_IDENTIFIER  _NDR64_RpcTransferSyntax = 
+{{0x71710533,0xbeba,0x4937,{0x83,0x19,0xb5,0xdb,0xef,0x9c,0xcc,0x36}},{1,0}};
+
+
 
 extern const ConnectionPoint_MIDL_TYPE_FORMAT_STRING ConnectionPoint__MIDL_TypeFormatString;
 extern const ConnectionPoint_MIDL_PROC_FORMAT_STRING ConnectionPoint__MIDL_ProcFormatString;
@@ -97,16 +99,9 @@ extern const MIDL_STUBLESS_PROXY_INFO IPrintDeviceSink_ProxyInfo;
 
 
 
-#if !defined(__RPC_WIN32__)
+#if !defined(__RPC_WIN64__)
 #error  Invalid build platform for this stub.
 #endif
-#if !(TARGET_IS_NT60_OR_LATER)
-#error You need Windows Vista or later to run this stub because it uses these features:
-#error   forced complex structure or array, compiled for Windows Vista.
-#error However, your C/C++ compilation flags indicate you intend to run this app on earlier systems.
-#error This app will fail with the RPC_X_WRONG_STUB_VERSION error.
-#endif
-
 
 static const ConnectionPoint_MIDL_PROC_FORMAT_STRING ConnectionPoint__MIDL_ProcFormatString =
     {
@@ -122,25 +117,26 @@ static const ConnectionPoint_MIDL_PROC_FORMAT_STRING ConnectionPoint__MIDL_ProcF
 			0x6c,		/* Old Flags:  object, Oi2 */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x3 ),	/* 3 */
-/*  8 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
+/*  8 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
 /* 10 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 12 */	NdrFcShort( 0x8 ),	/* 8 */
 /* 14 */	0x44,		/* Oi2 Flags:  has return, has ext, */
 			0x1,		/* 1 */
-/* 16 */	0x8,		/* 8 */
+/* 16 */	0xa,		/* 10 */
 			0x1,		/* Ext Flags:  new corr desc, */
 /* 18 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 20 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 22 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 24 */	NdrFcShort( 0x0 ),	/* 0 */
 
 	/* Return value */
 
 
 	/* Return value */
 
-/* 24 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 26 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 28 */	0x8,		/* FC_LONG */
+/* 26 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 28 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 30 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -171,14 +167,170 @@ static const unsigned short IPrintDevice_FormatStringOffsetTable[] =
     0
     };
 
+
+
+/* Object interface: IPrintDeviceSink, ver. 0.0,
+   GUID={0xEEE2C0BB,0xB761,0x48FC,{0xB2,0xE2,0x76,0x8A,0xF8,0x1C,0xB6,0x68}} */
+
+#pragma code_seg(".orpc")
+static const unsigned short IPrintDeviceSink_FormatStringOffsetTable[] =
+    {
+    0
+    };
+
+
+
+#endif /* defined(_M_AMD64)*/
+
+
+
+/* this ALWAYS GENERATED file contains the proxy stub code */
+
+
+ /* File created by MIDL compiler version 8.01.0622 */
+/* at Tue Jan 19 11:14:07 2038
+ */
+/* Compiler settings for ConnectionPoint.idl:
+    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
+    protocol : all , ms_ext, c_ext, robust
+    error checks: allocation ref bounds_check enum stub_data 
+    VC __declspec() decoration level: 
+         __declspec(uuid()), __declspec(selectany), __declspec(novtable)
+         DECLSPEC_UUID(), MIDL_INTERFACE()
+*/
+/* @@MIDL_FILE_HEADING(  ) */
+
+#if defined(_M_AMD64)
+
+
+
+
+#if !defined(__RPC_WIN64__)
+#error  Invalid build platform for this stub.
+#endif
+
+
+#include "ndr64types.h"
+#include "pshpack8.h"
+
+
+typedef 
+NDR64_FORMAT_CHAR
+__midl_frag5_t;
+extern const __midl_frag5_t __midl_frag5;
+
+typedef 
+struct 
+{
+    struct _NDR64_PROC_FORMAT frag1;
+    struct _NDR64_PARAM_FORMAT frag2;
+}
+__midl_frag4_t;
+extern const __midl_frag4_t __midl_frag4;
+
+typedef 
+NDR64_FORMAT_UINT32
+__midl_frag1_t;
+extern const __midl_frag1_t __midl_frag1;
+
+static const __midl_frag5_t __midl_frag5 =
+0x5    /* FC64_INT32 */;
+
+static const __midl_frag4_t __midl_frag4 =
+{ 
+/* OnPrint */
+    { 
+    /* OnPrint */      /* procedure OnPrint */
+        (NDR64_UINT32) 524611 /* 0x80143 */,    /* auto handle */ /* IsIntrepreted, [object], HasReturn */
+        (NDR64_UINT32) 16 /* 0x10 */ ,  /* Stack size */
+        (NDR64_UINT32) 0 /* 0x0 */,
+        (NDR64_UINT32) 8 /* 0x8 */,
+        (NDR64_UINT16) 0 /* 0x0 */,
+        (NDR64_UINT16) 0 /* 0x0 */,
+        (NDR64_UINT16) 1 /* 0x1 */,
+        (NDR64_UINT16) 0 /* 0x0 */
+    },
+    { 
+    /* HRESULT */      /* parameter HRESULT */
+        &__midl_frag5,
+        { 
+        /* HRESULT */
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            (NDR64_UINT16) 0 /* 0x0 */,
+            0
+        },    /* [out], IsReturn, Basetype, ByValue */
+        (NDR64_UINT16) 0 /* 0x0 */,
+        8 /* 0x8 */,   /* Stack offset */
+    }
+};
+
+static const __midl_frag1_t __midl_frag1 =
+(NDR64_UINT32) 0 /* 0x0 */;
+
+
+#include "poppack.h"
+
+
+
+/* Object interface: IUnknown, ver. 0.0,
+   GUID={0x00000000,0x0000,0x0000,{0xC0,0x00,0x00,0x00,0x00,0x00,0x00,0x46}} */
+
+
+/* Object interface: IPrintDevice, ver. 0.0,
+   GUID={0x8B82ACF5,0x2A77,0x4385,{0xB2,0x54,0x4B,0xC5,0xC6,0xF1,0x2F,0xB5}} */
+
+#pragma code_seg(".orpc")
+static const FormatInfoRef IPrintDevice_Ndr64ProcTable[] =
+    {
+    &__midl_frag4
+    };
+
+
+static const MIDL_SYNTAX_INFO IPrintDevice_SyntaxInfo [  2 ] = 
+    {
+    {
+    {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}},
+    0,
+    ConnectionPoint__MIDL_ProcFormatString.Format,
+    &IPrintDevice_FormatStringOffsetTable[-3],
+    ConnectionPoint__MIDL_TypeFormatString.Format,
+    0,
+    0,
+    0
+    }
+    ,{
+    {{0x71710533,0xbeba,0x4937,{0x83,0x19,0xb5,0xdb,0xef,0x9c,0xcc,0x36}},{1,0}},
+    0,
+    0 ,
+    (unsigned short *) &IPrintDevice_Ndr64ProcTable[-3],
+    0,
+    0,
+    0,
+    0
+    }
+    };
+
 static const MIDL_STUBLESS_PROXY_INFO IPrintDevice_ProxyInfo =
     {
     &Object_StubDesc,
     ConnectionPoint__MIDL_ProcFormatString.Format,
     &IPrintDevice_FormatStringOffsetTable[-3],
-    0,
-    0,
-    0
+    (RPC_SYNTAX_IDENTIFIER*)&_RpcTransferSyntax,
+    2,
+    (MIDL_SYNTAX_INFO*)IPrintDevice_SyntaxInfo
+    
     };
 
 
@@ -187,11 +339,12 @@ static const MIDL_SERVER_INFO IPrintDevice_ServerInfo =
     &Object_StubDesc,
     0,
     ConnectionPoint__MIDL_ProcFormatString.Format,
-    &IPrintDevice_FormatStringOffsetTable[-3],
+    (unsigned short *) &IPrintDevice_FormatStringOffsetTable[-3],
     0,
-    0,
-    0,
-    0};
+    (RPC_SYNTAX_IDENTIFIER*)&_NDR64_RpcTransferSyntax,
+    2,
+    (MIDL_SYNTAX_INFO*)IPrintDevice_SyntaxInfo
+    };
 CINTERFACE_PROXY_VTABLE(4) _IPrintDeviceProxyVtbl = 
 {
     &IPrintDevice_ProxyInfo,
@@ -216,9 +369,34 @@ const CInterfaceStubVtbl _IPrintDeviceStubVtbl =
    GUID={0xEEE2C0BB,0xB761,0x48FC,{0xB2,0xE2,0x76,0x8A,0xF8,0x1C,0xB6,0x68}} */
 
 #pragma code_seg(".orpc")
-static const unsigned short IPrintDeviceSink_FormatStringOffsetTable[] =
+static const FormatInfoRef IPrintDeviceSink_Ndr64ProcTable[] =
     {
+    &__midl_frag4
+    };
+
+
+static const MIDL_SYNTAX_INFO IPrintDeviceSink_SyntaxInfo [  2 ] = 
+    {
+    {
+    {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}},
+    0,
+    ConnectionPoint__MIDL_ProcFormatString.Format,
+    &IPrintDeviceSink_FormatStringOffsetTable[-3],
+    ConnectionPoint__MIDL_TypeFormatString.Format,
+    0,
+    0,
     0
+    }
+    ,{
+    {{0x71710533,0xbeba,0x4937,{0x83,0x19,0xb5,0xdb,0xef,0x9c,0xcc,0x36}},{1,0}},
+    0,
+    0 ,
+    (unsigned short *) &IPrintDeviceSink_Ndr64ProcTable[-3],
+    0,
+    0,
+    0,
+    0
+    }
     };
 
 static const MIDL_STUBLESS_PROXY_INFO IPrintDeviceSink_ProxyInfo =
@@ -226,9 +404,10 @@ static const MIDL_STUBLESS_PROXY_INFO IPrintDeviceSink_ProxyInfo =
     &Object_StubDesc,
     ConnectionPoint__MIDL_ProcFormatString.Format,
     &IPrintDeviceSink_FormatStringOffsetTable[-3],
-    0,
-    0,
-    0
+    (RPC_SYNTAX_IDENTIFIER*)&_RpcTransferSyntax,
+    2,
+    (MIDL_SYNTAX_INFO*)IPrintDeviceSink_SyntaxInfo
+    
     };
 
 
@@ -237,11 +416,12 @@ static const MIDL_SERVER_INFO IPrintDeviceSink_ServerInfo =
     &Object_StubDesc,
     0,
     ConnectionPoint__MIDL_ProcFormatString.Format,
-    &IPrintDeviceSink_FormatStringOffsetTable[-3],
+    (unsigned short *) &IPrintDeviceSink_FormatStringOffsetTable[-3],
     0,
-    0,
-    0,
-    0};
+    (RPC_SYNTAX_IDENTIFIER*)&_NDR64_RpcTransferSyntax,
+    2,
+    (MIDL_SYNTAX_INFO*)IPrintDeviceSink_SyntaxInfo
+    };
 CINTERFACE_PROXY_VTABLE(4) _IPrintDeviceSinkProxyVtbl = 
 {
     &IPrintDeviceSink_ProxyInfo,
@@ -279,7 +459,7 @@ static const MIDL_STUB_DESC Object_StubDesc =
     0,
     0,
     0,  /* notify & notify_flag routine table */
-    0x1, /* MIDL flag */
+    0x2000001, /* MIDL flag */
     0, /* cs routines */
     0,   /* proxy/server info */
     0
@@ -332,11 +512,10 @@ const ExtendedProxyFileInfo ConnectionPoint_ProxyFileInfo =
     0, /* Filler2 */
     0  /* Filler3 */
 };
-#pragma optimize("", on )
 #if _MSC_VER >= 1200
 #pragma warning(pop)
 #endif
 
 
-#endif /* !defined(_M_IA64) && !defined(_M_AMD64) && !defined(_ARM_) */
+#endif /* defined(_M_AMD64)*/
 

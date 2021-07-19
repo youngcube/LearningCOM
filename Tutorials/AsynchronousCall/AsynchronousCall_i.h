@@ -58,6 +58,13 @@ typedef interface AsyncIMessage AsyncIMessage;
 #endif 	/* __AsyncIMessage_FWD_DEFINED__ */
 
 
+#ifndef __IMessage_FWD_DEFINED__
+#define __IMessage_FWD_DEFINED__
+typedef interface IMessage IMessage;
+
+#endif 	/* __IMessage_FWD_DEFINED__ */
+
+
 #ifndef __Message_FWD_DEFINED__
 #define __Message_FWD_DEFINED__
 
@@ -254,6 +261,7 @@ EXTERN_C const IID IID_AsyncIMessage;
 
 /* library AsynchronousCallLib */
 /* [version][uuid] */ 
+
 
 
 EXTERN_C const IID LIBID_AsynchronousCallLib;
