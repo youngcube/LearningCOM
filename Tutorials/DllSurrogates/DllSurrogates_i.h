@@ -88,7 +88,9 @@ EXTERN_C const IID IID_IMessage;
     IMessage : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE Print( 
+        virtual HRESULT STDMETHODCALLTYPE InitApartment( void) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE InitWCapture( 
             /* [in] */ BSTR strMsg) = 0;
         
     };
@@ -112,7 +114,10 @@ EXTERN_C const IID IID_IMessage;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMessage * This);
         
-        HRESULT ( STDMETHODCALLTYPE *Print )( 
+        HRESULT ( STDMETHODCALLTYPE *InitApartment )( 
+            IMessage * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *InitWCapture )( 
             IMessage * This,
             /* [in] */ BSTR strMsg);
         
@@ -139,8 +144,11 @@ EXTERN_C const IID IID_IMessage;
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IMessage_Print(This,strMsg)	\
-    ( (This)->lpVtbl -> Print(This,strMsg) ) 
+#define IMessage_InitApartment(This)	\
+    ( (This)->lpVtbl -> InitApartment(This) ) 
+
+#define IMessage_InitWCapture(This,strMsg)	\
+    ( (This)->lpVtbl -> InitWCapture(This,strMsg) ) 
 
 #endif /* COBJMACROS */
 

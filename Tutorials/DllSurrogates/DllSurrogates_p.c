@@ -47,7 +47,7 @@
 #include "DllSurrogates_i.h"
 
 #define TYPE_FORMAT_STRING_SIZE   39                                
-#define PROC_FORMAT_STRING_SIZE   39                                
+#define PROC_FORMAT_STRING_SIZE   71                                
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   1            
@@ -103,35 +103,60 @@ static const DllSurrogates_MIDL_PROC_FORMAT_STRING DllSurrogates__MIDL_ProcForma
         0,
         {
 
-	/* Procedure Print */
+	/* Procedure InitApartment */
 
 			0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /*  2 */	NdrFcLong( 0x0 ),	/* 0 */
 /*  6 */	NdrFcShort( 0x3 ),	/* 3 */
-/*  8 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
+/*  8 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
 /* 10 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 12 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 14 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
-			0x2,		/* 2 */
+/* 14 */	0x44,		/* Oi2 Flags:  has return, has ext, */
+			0x1,		/* 1 */
 /* 16 */	0xa,		/* 10 */
-			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+			0x1,		/* Ext Flags:  new corr desc, */
 /* 18 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 20 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 20 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 22 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 24 */	NdrFcShort( 0x0 ),	/* 0 */
 
+	/* Return value */
+
+/* 26 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 28 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 30 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure InitWCapture */
+
+/* 32 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 34 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 38 */	NdrFcShort( 0x4 ),	/* 4 */
+/* 40 */	NdrFcShort( 0x18 ),	/* X64 Stack size/offset = 24 */
+/* 42 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 44 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 46 */	0x46,		/* Oi2 Flags:  clt must size, has return, has ext, */
+			0x2,		/* 2 */
+/* 48 */	0xa,		/* 10 */
+			0x5,		/* Ext Flags:  new corr desc, srv corr check, */
+/* 50 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 52 */	NdrFcShort( 0x1 ),	/* 1 */
+/* 54 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 56 */	NdrFcShort( 0x0 ),	/* 0 */
+
 	/* Parameter strMsg */
 
-/* 26 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
-/* 28 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
-/* 30 */	NdrFcShort( 0x1c ),	/* Type Offset=28 */
+/* 58 */	NdrFcShort( 0x8b ),	/* Flags:  must size, must free, in, by val, */
+/* 60 */	NdrFcShort( 0x8 ),	/* X64 Stack size/offset = 8 */
+/* 62 */	NdrFcShort( 0x1c ),	/* Type Offset=28 */
 
 	/* Return value */
 
-/* 32 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 34 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
-/* 36 */	0x8,		/* FC_LONG */
+/* 64 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 66 */	NdrFcShort( 0x10 ),	/* X64 Stack size/offset = 16 */
+/* 68 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -200,7 +225,8 @@ static const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 #pragma code_seg(".orpc")
 static const unsigned short IMessage_FormatStringOffsetTable[] =
     {
-    0
+    0,
+    32
     };
 
 
@@ -243,13 +269,13 @@ extern const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 
 typedef 
 NDR64_FORMAT_CHAR
-__midl_frag9_t;
-extern const __midl_frag9_t __midl_frag9;
+__midl_frag11_t;
+extern const __midl_frag11_t __midl_frag11;
 
 typedef 
 NDR64_FORMAT_CHAR
-__midl_frag8_t;
-extern const __midl_frag8_t __midl_frag8;
+__midl_frag10_t;
+extern const __midl_frag10_t __midl_frag10;
 
 typedef 
 struct 
@@ -257,8 +283,8 @@ struct
     NDR64_FORMAT_UINT32 frag1;
     struct _NDR64_EXPR_VAR frag2;
 }
-__midl_frag7_t;
-extern const __midl_frag7_t __midl_frag7;
+__midl_frag9_t;
+extern const __midl_frag9_t __midl_frag9;
 
 typedef 
 struct 
@@ -266,26 +292,26 @@ struct
     struct _NDR64_CONF_ARRAY_HEADER_FORMAT frag1;
     struct _NDR64_ARRAY_ELEMENT_INFO frag2;
 }
-__midl_frag6_t;
-extern const __midl_frag6_t __midl_frag6;
+__midl_frag8_t;
+extern const __midl_frag8_t __midl_frag8;
 
 typedef 
 struct 
 {
     struct _NDR64_CONF_STRUCTURE_HEADER_FORMAT frag1;
 }
-__midl_frag5_t;
-extern const __midl_frag5_t __midl_frag5;
+__midl_frag7_t;
+extern const __midl_frag7_t __midl_frag7;
 
 typedef 
 struct _NDR64_POINTER_FORMAT
-__midl_frag4_t;
-extern const __midl_frag4_t __midl_frag4;
+__midl_frag6_t;
+extern const __midl_frag6_t __midl_frag6;
 
 typedef 
 struct _NDR64_USER_MARSHAL_FORMAT
-__midl_frag3_t;
-extern const __midl_frag3_t __midl_frag3;
+__midl_frag5_t;
+extern const __midl_frag5_t __midl_frag5;
 
 typedef 
 struct 
@@ -293,6 +319,15 @@ struct
     struct _NDR64_PROC_FORMAT frag1;
     struct _NDR64_PARAM_FORMAT frag2;
     struct _NDR64_PARAM_FORMAT frag3;
+}
+__midl_frag4_t;
+extern const __midl_frag4_t __midl_frag4;
+
+typedef 
+struct 
+{
+    struct _NDR64_PROC_FORMAT frag1;
+    struct _NDR64_PARAM_FORMAT frag2;
 }
 __midl_frag2_t;
 extern const __midl_frag2_t __midl_frag2;
@@ -302,13 +337,13 @@ NDR64_FORMAT_UINT32
 __midl_frag1_t;
 extern const __midl_frag1_t __midl_frag1;
 
-static const __midl_frag9_t __midl_frag9 =
+static const __midl_frag11_t __midl_frag11 =
 0x5    /* FC64_INT32 */;
 
-static const __midl_frag8_t __midl_frag8 =
+static const __midl_frag10_t __midl_frag10 =
 0x4    /* FC64_INT16 */;
 
-static const __midl_frag7_t __midl_frag7 =
+static const __midl_frag9_t __midl_frag9 =
 { 
 /*  */
     (NDR64_UINT32) 1 /* 0x1 */,
@@ -321,7 +356,7 @@ static const __midl_frag7_t __midl_frag7 =
     }
 };
 
-static const __midl_frag6_t __midl_frag6 =
+static const __midl_frag8_t __midl_frag8 =
 { 
 /*  */
     { 
@@ -341,16 +376,16 @@ static const __midl_frag6_t __midl_frag6 =
         },
         (NDR64_UINT8) 0 /* 0x0 */,
         (NDR64_UINT32) 2 /* 0x2 */,
-        &__midl_frag7
+        &__midl_frag9
     },
     { 
     /* struct _NDR64_ARRAY_ELEMENT_INFO */
         (NDR64_UINT32) 2 /* 0x2 */,
-        &__midl_frag8
+        &__midl_frag10
     }
 };
 
-static const __midl_frag5_t __midl_frag5 =
+static const __midl_frag7_t __midl_frag7 =
 { 
 /* FLAGGED_WORD_BLOB */
     { 
@@ -370,20 +405,20 @@ static const __midl_frag5_t __midl_frag5 =
         },
         (NDR64_UINT8) 0 /* 0x0 */,
         (NDR64_UINT32) 8 /* 0x8 */,
-        &__midl_frag6
+        &__midl_frag8
     }
 };
 
-static const __midl_frag4_t __midl_frag4 =
+static const __midl_frag6_t __midl_frag6 =
 { 
 /* *FLAGGED_WORD_BLOB */
     0x21,    /* FC64_UP */
     (NDR64_UINT8) 0 /* 0x0 */,
     (NDR64_UINT16) 0 /* 0x0 */,
-    &__midl_frag5
+    &__midl_frag7
 };
 
-static const __midl_frag3_t __midl_frag3 =
+static const __midl_frag5_t __midl_frag5 =
 { 
 /* wireBSTR */
     0xa2,    /* FC64_USER_MARSHAL */
@@ -393,14 +428,14 @@ static const __midl_frag3_t __midl_frag3 =
     (NDR64_UINT16) 8 /* 0x8 */,
     (NDR64_UINT32) 8 /* 0x8 */,
     (NDR64_UINT32) 0 /* 0x0 */,
-    &__midl_frag4
+    &__midl_frag6
 };
 
-static const __midl_frag2_t __midl_frag2 =
+static const __midl_frag4_t __midl_frag4 =
 { 
-/* Print */
+/* InitWCapture */
     { 
-    /* Print */      /* procedure Print */
+    /* InitWCapture */      /* procedure InitWCapture */
         (NDR64_UINT32) 2883907 /* 0x2c0143 */,    /* auto handle */ /* IsIntrepreted, [object], ClientMustSize, HasReturn, ServerCorrelation */
         (NDR64_UINT32) 24 /* 0x18 */ ,  /* Stack size */
         (NDR64_UINT32) 0 /* 0x0 */,
@@ -412,7 +447,7 @@ static const __midl_frag2_t __midl_frag2 =
     },
     { 
     /* strMsg */      /* parameter strMsg */
-        &__midl_frag3,
+        &__midl_frag5,
         { 
         /* strMsg */
             1,
@@ -436,7 +471,7 @@ static const __midl_frag2_t __midl_frag2 =
     },
     { 
     /* HRESULT */      /* parameter HRESULT */
-        &__midl_frag9,
+        &__midl_frag11,
         { 
         /* HRESULT */
             0,
@@ -457,6 +492,46 @@ static const __midl_frag2_t __midl_frag2 =
         },    /* [out], IsReturn, Basetype, ByValue */
         (NDR64_UINT16) 0 /* 0x0 */,
         16 /* 0x10 */,   /* Stack offset */
+    }
+};
+
+static const __midl_frag2_t __midl_frag2 =
+{ 
+/* InitApartment */
+    { 
+    /* InitApartment */      /* procedure InitApartment */
+        (NDR64_UINT32) 524611 /* 0x80143 */,    /* auto handle */ /* IsIntrepreted, [object], HasReturn */
+        (NDR64_UINT32) 16 /* 0x10 */ ,  /* Stack size */
+        (NDR64_UINT32) 0 /* 0x0 */,
+        (NDR64_UINT32) 8 /* 0x8 */,
+        (NDR64_UINT16) 0 /* 0x0 */,
+        (NDR64_UINT16) 0 /* 0x0 */,
+        (NDR64_UINT16) 1 /* 0x1 */,
+        (NDR64_UINT16) 0 /* 0x0 */
+    },
+    { 
+    /* HRESULT */      /* parameter HRESULT */
+        &__midl_frag11,
+        { 
+        /* HRESULT */
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            (NDR64_UINT16) 0 /* 0x0 */,
+            0
+        },    /* [out], IsReturn, Basetype, ByValue */
+        (NDR64_UINT16) 0 /* 0x0 */,
+        8 /* 0x8 */,   /* Stack offset */
     }
 };
 
@@ -491,7 +566,8 @@ static const USER_MARSHAL_ROUTINE_QUADRUPLE NDR64_UserMarshalRoutines[ WIRE_MARS
 #pragma code_seg(".orpc")
 static const FormatInfoRef IMessage_Ndr64ProcTable[] =
     {
-    &__midl_frag2
+    &__midl_frag2,
+    &__midl_frag4
     };
 
 
@@ -542,21 +618,22 @@ static const MIDL_SERVER_INFO IMessage_ServerInfo =
     2,
     (MIDL_SYNTAX_INFO*)IMessage_SyntaxInfo
     };
-CINTERFACE_PROXY_VTABLE(4) _IMessageProxyVtbl = 
+CINTERFACE_PROXY_VTABLE(5) _IMessageProxyVtbl = 
 {
     &IMessage_ProxyInfo,
     &IID_IMessage,
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    (void *) (INT_PTR) -1 /* IMessage::Print */
+    (void *) (INT_PTR) -1 /* IMessage::InitApartment */ ,
+    (void *) (INT_PTR) -1 /* IMessage::InitWCapture */
 };
 
 const CInterfaceStubVtbl _IMessageStubVtbl =
 {
     &IID_IMessage,
     &IMessage_ServerInfo,
-    4,
+    5,
     0, /* pure interpreted */
     CStdStubBuffer_METHODS
 };

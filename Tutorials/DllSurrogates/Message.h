@@ -15,6 +15,7 @@
 
 using namespace ATL;
 
+class OcrEngine;
 
 // CMessage
 
@@ -49,7 +50,11 @@ END_COM_MAP()
 	}
 
 public:
-	STDMETHODIMP Print(BSTR) override;
+	STDMETHODIMP InitWCapture(BSTR) override;
+	STDMETHODIMP InitApartment() override;
+
+private:
+	OcrEngine engine;
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(Message), CMessage)

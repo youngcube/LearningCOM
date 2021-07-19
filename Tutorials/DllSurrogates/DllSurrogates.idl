@@ -16,7 +16,8 @@ import "ocidl.idl";
 ]
 interface IMessage : IUnknown
 {
-	HRESULT Print([in] BSTR strMsg);
+	HRESULT InitApartment();
+	HRESULT InitWCapture([in] BSTR strMsg);
 };
 [
 	uuid(55BC07C1-5362-4E94-9759-C4CB866FC153),
