@@ -10,7 +10,7 @@
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Media.Ocr.h>
 #include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h> 
+#include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.Media.Ocr.h>
 #include <winrt/Windows.Networking.Sockets.h>
@@ -25,15 +25,18 @@ using namespace Windows::Storage::Streams;
 using namespace Windows::Graphics::Imaging;
 using namespace Windows::Media::Ocr;
 
-HRESULT CMessage::InitWCapture(BSTR b)
+HRESULT CMessage::InitWCapture(BSTR bs)
 {
-    MessageBoxW(NULL, b, L"Message", MB_OK);
+    if (bs == nullptr){
+        return S_FALSE;
+    }
+    wstring lang(bs, SysStringLen(bs));
     engine = OcrEngine::TryCreateFromLanguage(Windows::Globalization::Language(lang));
     if (engine != NULL)
     {
         return S_OK;
     }
-    return S_OK;
+    return S_FALSE;
 }
 
 HRESULT CMessage::InitApartment()
