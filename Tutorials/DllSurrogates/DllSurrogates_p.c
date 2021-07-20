@@ -512,13 +512,13 @@ static const __midl_frag20_t __midl_frag20 =
 
 static const __midl_frag19_t __midl_frag19 =
 { 
-/* WCaptureResult */
+/* IDLCaptureResult */
     { 
-    /* WCaptureResult */
+    /* IDLCaptureResult */
         0x34,    /* FC64_BOGUS_STRUCT */
         (NDR64_UINT8) 7 /* 0x7 */,
         { 
-        /* WCaptureResult */
+        /* IDLCaptureResult */
             0,
             1,
             0,
@@ -558,7 +558,7 @@ static const __midl_frag19_t __midl_frag19 =
             (NDR64_UINT32) 0 /* 0x0 */
         },
         { 
-        /* WCaptureResult */
+        /* IDLCaptureResult */
             0x92,    /* FC64_BUFFER_ALIGN */
             (NDR64_UINT8) 7 /* 0x7 */,
             (NDR64_UINT16) 0 /* 0x0 */,
@@ -576,7 +576,7 @@ static const __midl_frag19_t __midl_frag19 =
 
 static const __midl_frag18_t __midl_frag18 =
 { 
-/* *WCaptureResult */
+/* *IDLCaptureResult */
     0x20,    /* FC64_RP */
     (NDR64_UINT8) 4 /* 0x4 */,
     (NDR64_UINT16) 0 /* 0x0 */,

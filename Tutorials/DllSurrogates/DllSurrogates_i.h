@@ -80,7 +80,7 @@ typedef /* [public][public] */ struct __MIDL___MIDL_itf_DllSurrogates_0000_0000_
     {
     BSTR line;
     int curPos;
-    } 	WCaptureResult;
+    } 	IDLCaptureResult;
 
 
 
@@ -112,7 +112,7 @@ EXTERN_C const IID IID_IMessage;
             DWORD imgLength,
             int xPos,
             int yPos,
-            /* [out] */ WCaptureResult *result) = 0;
+            /* [out] */ IDLCaptureResult *result) = 0;
         
     };
     
@@ -148,7 +148,7 @@ EXTERN_C const IID IID_IMessage;
             DWORD imgLength,
             int xPos,
             int yPos,
-            /* [out] */ WCaptureResult *result);
+            /* [out] */ IDLCaptureResult *result);
         
         END_INTERFACE
     } IMessageVtbl;

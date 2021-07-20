@@ -39,14 +39,14 @@ struct InnerWCaptureResult
     int curPos;
 };
 
-HRESULT CMessage::Capture(unsigned char* img, DWORD imgLength, int xPos, int yPos, WCaptureResult* pointerResult)
+HRESULT CMessage::Capture(unsigned char* img, DWORD imgLength, int xPos, int yPos, IDLCaptureResult* pointerResult)
 {
     InnerWCaptureResult capresult;
     if (engine == NULL) {
         return S_FALSE;
     }
 
-    winrt::array_view<unsigned char const> fromRange{ img, imgLength };
+    winrt::array_view<unsigned char const> fromRange{ img, (unsigned char *)imgLength };
     //array_view<unsigned char>   fromRange(buffer);
     winrt::Windows::Storage::Streams::InMemoryRandomAccessStream stream;
     winrt::Windows::Storage::Streams::DataWriter dataWriter{ stream.GetOutputStreamAt(0) };

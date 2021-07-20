@@ -44,7 +44,7 @@ END_COM_MAP()
 public:
 	STDMETHODIMP InitWCapture(BSTR) override;
 	STDMETHODIMP InitApartment() override;
-	STDMETHODIMP Capture(unsigned char*, DWORD, int, int, WCaptureResult*) override;
+	STDMETHODIMP Capture(unsigned char*, DWORD, int, int, IDLCaptureResult*) override;
 
 private:
 	winrt::Windows::Media::Ocr::OcrEngine engine;

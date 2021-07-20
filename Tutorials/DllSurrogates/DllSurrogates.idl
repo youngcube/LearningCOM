@@ -11,7 +11,7 @@ typedef struct
 {
 	BSTR line;
 	int curPos;
-} WCaptureResult;
+} IDLCaptureResult;
 
 [
 	object,
@@ -24,7 +24,7 @@ interface IMessage : IUnknown
 {
 	HRESULT InitApartment();
 	HRESULT InitWCapture(BSTR lang);
-	HRESULT Capture(unsigned char* img, DWORD imgLength, int xPos, int yPos, [out] WCaptureResult *result);
+	HRESULT Capture(unsigned char* img, DWORD imgLength, int xPos, int yPos, [out] IDLCaptureResult*result);
 };
 [
 	uuid(55BC07C1-5362-4E94-9759-C4CB866FC153),
