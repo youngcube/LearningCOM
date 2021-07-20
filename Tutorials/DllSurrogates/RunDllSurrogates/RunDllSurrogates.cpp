@@ -21,7 +21,7 @@ int main()
     {
         CComPtr<IMessage> pMessage;
         HRESULT hr = CoCreateInstance(CLSID_Message, NULL, CLSCTX_LOCAL_SERVER, IID_IMessage, (void**)&pMessage);
-        pMessage->Print(CComBSTR(OLESTR("Hello World")));
+        pMessage->InitApartment();
     }
     return 0;
 }
