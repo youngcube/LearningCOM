@@ -3,6 +3,7 @@
 
 // 此文件将由 MIDL 工具处理以
 // 生成类型库(DllSurrogates.tlb)和封送处理代码。
+// 如果修改了UUID，则 Message.rgs 里的 UUID 也需要一并修改
 
 import "oaidl.idl";
 import "ocidl.idl";

@@ -2,20 +2,20 @@ HKCR
 {
 	NoRemove CLSID
 	{
-		ForceRemove {064468a5-f878-4a10-8e2e-d70bdfd00b23} = s 'Message class'
+		ForceRemove {F655613E-ECA8-4FC0-8534-5BF33CB25546} = s 'Message class'
 		{
 			val AppID = s '{86C9F294-BB2C-4cfa-96BE-9586EC043FC6}'
 			InprocServer32 = s '%MODULE%'
 			{
 				val ThreadingModel = s 'Apartment'
 			}
-			TypeLib = s '{6c6592db-7ebb-4e30-badd-22d26305eca5}'
+			TypeLib = s '{55bc07c1-5362-4e94-9759-c4cb866fc153}'
 			Version = s '1.0'
 		}
 	}
 	NoRemove AppID
 	{
-		NoRemove {86C9F294-BB2C-4cfa-96BE-9586EC043FC6} = s 'Message Application'
+		NoRemove {F655613E-ECA8-4FC0-8534-5BF33CB25546} = s 'Message Application'
 		{
 			val DllSurrogate = s ''
 		}
