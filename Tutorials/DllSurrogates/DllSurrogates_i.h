@@ -73,6 +73,20 @@ extern "C"{
 #endif 
 
 
+/* interface __MIDL_itf_DllSurrogates_0000_0000 */
+/* [local] */ 
+
+typedef /* [public][public] */ struct __MIDL___MIDL_itf_DllSurrogates_0000_0000_0001
+    {
+    BSTR line;
+    int curPos;
+    } 	WCaptureResult;
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_DllSurrogates_0000_0000_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_DllSurrogates_0000_0000_v0_0_s_ifspec;
+
 #ifndef __IMessage_INTERFACE_DEFINED__
 #define __IMessage_INTERFACE_DEFINED__
 
@@ -91,7 +105,14 @@ EXTERN_C const IID IID_IMessage;
         virtual HRESULT STDMETHODCALLTYPE InitApartment( void) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE InitWCapture( 
-            /* [in] */ BSTR strMsg) = 0;
+            BSTR lang) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE Capture( 
+            unsigned char *img,
+            DWORD imgLength,
+            int xPos,
+            int yPos,
+            /* [out] */ WCaptureResult *result) = 0;
         
     };
     
@@ -119,7 +140,15 @@ EXTERN_C const IID IID_IMessage;
         
         HRESULT ( STDMETHODCALLTYPE *InitWCapture )( 
             IMessage * This,
-            /* [in] */ BSTR strMsg);
+            BSTR lang);
+        
+        HRESULT ( STDMETHODCALLTYPE *Capture )( 
+            IMessage * This,
+            unsigned char *img,
+            DWORD imgLength,
+            int xPos,
+            int yPos,
+            /* [out] */ WCaptureResult *result);
         
         END_INTERFACE
     } IMessageVtbl;
@@ -147,8 +176,11 @@ EXTERN_C const IID IID_IMessage;
 #define IMessage_InitApartment(This)	\
     ( (This)->lpVtbl -> InitApartment(This) ) 
 
-#define IMessage_InitWCapture(This,strMsg)	\
-    ( (This)->lpVtbl -> InitWCapture(This,strMsg) ) 
+#define IMessage_InitWCapture(This,lang)	\
+    ( (This)->lpVtbl -> InitWCapture(This,lang) ) 
+
+#define IMessage_Capture(This,img,imgLength,xPos,yPos,result)	\
+    ( (This)->lpVtbl -> Capture(This,img,imgLength,xPos,yPos,result) ) 
 
 #endif /* COBJMACROS */
 

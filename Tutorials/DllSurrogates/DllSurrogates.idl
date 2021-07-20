@@ -7,6 +7,12 @@
 import "oaidl.idl";
 import "ocidl.idl";
 
+typedef struct 
+{
+	BSTR line;
+	int curPos;
+} WCaptureResult;
+
 [
 	object,
 	uuid(DE4972AA-53A3-40DA-9721-47631521682C),
@@ -17,7 +23,8 @@ import "ocidl.idl";
 interface IMessage : IUnknown
 {
 	HRESULT InitApartment();
-	HRESULT InitWCapture([in] BSTR strMsg);
+	HRESULT InitWCapture(BSTR lang);
+	HRESULT Capture(unsigned char* img, DWORD imgLength, int xPos, int yPos, [out] WCaptureResult *result);
 };
 [
 	uuid(55BC07C1-5362-4E94-9759-C4CB866FC153),
