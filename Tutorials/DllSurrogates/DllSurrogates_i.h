@@ -98,7 +98,7 @@ EXTERN_C const IID IID_IMessage;
 
 #if defined(__cplusplus) && !defined(CINTERFACE)
     
-    MIDL_INTERFACE("DE4972AA-53A3-40DA-9721-47631521682C")
+    MIDL_INTERFACE("de4972aa-53a3-40da-9721-47631521682c")
     IMessage : public IUnknown
     {
     public:
@@ -207,7 +207,7 @@ EXTERN_C const CLSID CLSID_Message;
 
 #ifdef __cplusplus
 
-class DECLSPEC_UUID("CA287451-6B99-47A0-BF9A-344742E72D3D")
+class DECLSPEC_UUID("ca287451-6b99-47a0-bf9a-344742e72d3d")
 Message;
 #endif
 #endif /* __DllSurrogatesLib_LIBRARY_DEFINED__ */

@@ -15,7 +15,7 @@ typedef struct
 
 [
 	object,
-	uuid(DE4972AA-53A3-40DA-9721-47631521682C),
+	uuid(de4972aa-53a3-40da-9721-47631521682c),
 	pointer_default(unique),
 	oleautomation
 
@@ -27,14 +27,14 @@ interface IMessage : IUnknown
 	HRESULT Capture(unsigned char* img, DWORD imgLength, int xPos, int yPos, [out] IDLCaptureResult*result);
 };
 [
-	uuid(55BC07C1-5362-4E94-9759-C4CB866FC153),
+	uuid(55bc07c1-5362-4e94-9759-c4cb866fc153),
 	version(1.0),
 ]
 library DllSurrogatesLib
 {
 	importlib("stdole2.tlb");
 	[
-		uuid(CA287451-6B99-47A0-BF9A-344742E72D3D)
+		uuid(ca287451-6b99-47a0-bf9a-344742e72d3d)
 	]
 	coclass Message
 	{
