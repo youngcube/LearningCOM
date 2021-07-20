@@ -97,8 +97,8 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>DllSurrogates_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>DllSurrogates_i.c</InterfaceIdentifierFileName>
+      <HeaderFileName>include\DllSurrogates_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>include\DllSurrogates_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>DllSurrogates_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(IntDir)DllSurrogates.tlb</TypeLibraryName>
@@ -129,8 +129,8 @@
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>DllSurrogates_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>DllSurrogates_i.c</InterfaceIdentifierFileName>
+      <HeaderFileName>include\DllSurrogates_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>include\DllSurrogates_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>DllSurrogates_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(IntDir)DllSurrogates.tlb</TypeLibraryName>
@@ -162,8 +162,8 @@
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <TargetEnvironment>Win32</TargetEnvironment>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>DllSurrogates_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>DllSurrogates_i.c</InterfaceIdentifierFileName>
+      <HeaderFileName>include\DllSurrogates_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>include\DllSurrogates_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>DllSurrogates_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(IntDir)DllSurrogates.tlb</TypeLibraryName>
@@ -196,8 +196,8 @@
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <HeaderFileName>DllSurrogates_i.h</HeaderFileName>
-      <InterfaceIdentifierFileName>DllSurrogates_i.c</InterfaceIdentifierFileName>
+      <HeaderFileName>include\DllSurrogates_i.h</HeaderFileName>
+      <InterfaceIdentifierFileName>include\DllSurrogates_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>DllSurrogates_p.c</ProxyFileName>
       <GenerateStublessProxies>true</GenerateStublessProxies>
       <TypeLibraryName>$(IntDir)DllSurrogates.tlb</TypeLibraryName>
@@ -219,7 +219,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="dllmain.h" />
-    <ClInclude Include="DllSurrogates_i.h" />
+    <ClInclude Include="include\DllSurrogates_i.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Message.h" />
     <ClInclude Include="pch.h" />
@@ -242,7 +242,7 @@
       </PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="DllSurrogates.cpp" />
-    <ClCompile Include="DllSurrogates_i.c">
+    <ClCompile Include="include\DllSurrogates_i.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>

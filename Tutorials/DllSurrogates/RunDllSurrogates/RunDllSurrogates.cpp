@@ -3,8 +3,8 @@
 
 #include <combaseapi.h>
 #include <atlbase.h>
-#include "../DllSurrogates_i.h"
-#include "../DllSurrogates_i.c"
+#include "../include/DllSurrogates_i.h"
+#include "../include/DllSurrogates_i.c"
 
 // main.cpp
 using namespace ATL;

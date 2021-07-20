@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "resource.h"
-#include "DllSurrogates_i.h"
+#include "include/DllSurrogates_i.h"
 #include "dllmain.h"
 
 
