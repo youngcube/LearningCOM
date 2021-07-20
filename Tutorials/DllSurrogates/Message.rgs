@@ -2,9 +2,9 @@ HKCR
 {
 	NoRemove CLSID
 	{
-		ForceRemove {F655613E-ECA8-4FC0-8534-5BF33CB25546} = s 'Message class'
+		ForceRemove {ca287451-6b99-47a0-bf9a-344742e72d3d} = s 'Message class'
 		{
-			val AppID = s '{86C9F294-BB2C-4cfa-96BE-9586EC043FC6}'
+			val AppID = s '{F655613E-ECA8-4FC0-8534-5BF33CB25546}'
 			InprocServer32 = s '%MODULE%'
 			{
 				val ThreadingModel = s 'Apartment'
