@@ -7,8 +7,8 @@
 /* at Tue Jan 19 11:14:07 2038
  */
 /* Compiler settings for SimpleServer.idl:
-    Oicf, W1, Zp8, env=Win64 (32b run), target_arch=AMD64 8.01.0622 
-    protocol : all , ms_ext, c_ext, robust
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 8.01.0622 
+    protocol : dce , ms_ext, c_ext, robust
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
@@ -43,13 +43,6 @@
 #endif
 
 /* Forward Declarations */ 
-
-#ifndef __IMessageBox_FWD_DEFINED__
-#define __IMessageBox_FWD_DEFINED__
-typedef interface IMessageBox IMessageBox;
-
-#endif 	/* __IMessageBox_FWD_DEFINED__ */
-
 
 #ifndef __IMessageBox_FWD_DEFINED__
 #define __IMessageBox_FWD_DEFINED__
@@ -165,7 +158,6 @@ EXTERN_C const IID IID_IMessageBox;
 
 /* library SimpleServerLib */
 /* [version][uuid] */ 
-
 
 
 EXTERN_C const IID LIBID_SimpleServerLib;
