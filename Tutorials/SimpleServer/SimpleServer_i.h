@@ -72,6 +72,20 @@ extern "C"{
 #endif 
 
 
+/* interface __MIDL_itf_SimpleServer_0000_0000 */
+/* [local] */ 
+
+typedef /* [public][public][public] */ struct __MIDL___MIDL_itf_SimpleServer_0000_0000_0001
+    {
+    BSTR line;
+    int curPos;
+    } 	IDLCaptureResult;
+
+
+
+extern RPC_IF_HANDLE __MIDL_itf_SimpleServer_0000_0000_v0_0_c_ifspec;
+extern RPC_IF_HANDLE __MIDL_itf_SimpleServer_0000_0000_v0_0_s_ifspec;
+
 #ifndef __IMessageBox_INTERFACE_DEFINED__
 #define __IMessageBox_INTERFACE_DEFINED__
 
@@ -87,8 +101,26 @@ EXTERN_C const IID IID_IMessageBox;
     IMessageBox : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE Show( 
-            /* [in] */ VARIANT szText) = 0;
+        virtual HRESULT STDMETHODCALLTYPE InitApartment( void) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE InitWCapture( 
+            BSTR lang) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE CaptureSample( void) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE Capture( 
+            /* [in] */ SAFEARRAY * img,
+            DWORD imgLength,
+            /* [in] */ int xPos,
+            /* [in] */ int yPos,
+            /* [out] */ IDLCaptureResult *result) = 0;
+        
+        virtual HRESULT STDMETHODCALLTYPE CapturePointer( 
+            /* [in] */ unsigned char *img,
+            DWORD imgLength,
+            /* [in] */ int xPos,
+            /* [in] */ int yPos,
+            /* [out] */ IDLCaptureResult *result) = 0;
         
     };
     
@@ -111,9 +143,31 @@ EXTERN_C const IID IID_IMessageBox;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMessageBox * This);
         
-        HRESULT ( STDMETHODCALLTYPE *Show )( 
+        HRESULT ( STDMETHODCALLTYPE *InitApartment )( 
+            IMessageBox * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *InitWCapture )( 
             IMessageBox * This,
-            /* [in] */ VARIANT szText);
+            BSTR lang);
+        
+        HRESULT ( STDMETHODCALLTYPE *CaptureSample )( 
+            IMessageBox * This);
+        
+        HRESULT ( STDMETHODCALLTYPE *Capture )( 
+            IMessageBox * This,
+            /* [in] */ SAFEARRAY * img,
+            DWORD imgLength,
+            /* [in] */ int xPos,
+            /* [in] */ int yPos,
+            /* [out] */ IDLCaptureResult *result);
+        
+        HRESULT ( STDMETHODCALLTYPE *CapturePointer )( 
+            IMessageBox * This,
+            /* [in] */ unsigned char *img,
+            DWORD imgLength,
+            /* [in] */ int xPos,
+            /* [in] */ int yPos,
+            /* [out] */ IDLCaptureResult *result);
         
         END_INTERFACE
     } IMessageBoxVtbl;
@@ -138,8 +192,20 @@ EXTERN_C const IID IID_IMessageBox;
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IMessageBox_Show(This,szText)	\
-    ( (This)->lpVtbl -> Show(This,szText) ) 
+#define IMessageBox_InitApartment(This)	\
+    ( (This)->lpVtbl -> InitApartment(This) ) 
+
+#define IMessageBox_InitWCapture(This,lang)	\
+    ( (This)->lpVtbl -> InitWCapture(This,lang) ) 
+
+#define IMessageBox_CaptureSample(This)	\
+    ( (This)->lpVtbl -> CaptureSample(This) ) 
+
+#define IMessageBox_Capture(This,img,imgLength,xPos,yPos,result)	\
+    ( (This)->lpVtbl -> Capture(This,img,imgLength,xPos,yPos,result) ) 
+
+#define IMessageBox_CapturePointer(This,img,imgLength,xPos,yPos,result)	\
+    ( (This)->lpVtbl -> CapturePointer(This,img,imgLength,xPos,yPos,result) ) 
 
 #endif /* COBJMACROS */
 
@@ -173,15 +239,25 @@ MessageBoxClass;
 
 /* Additional Prototypes for ALL interfaces */
 
-unsigned long             __RPC_USER  VARIANT_UserSize(     unsigned long *, unsigned long            , VARIANT * ); 
-unsigned char * __RPC_USER  VARIANT_UserMarshal(  unsigned long *, unsigned char *, VARIANT * ); 
-unsigned char * __RPC_USER  VARIANT_UserUnmarshal(unsigned long *, unsigned char *, VARIANT * ); 
-void                      __RPC_USER  VARIANT_UserFree(     unsigned long *, VARIANT * ); 
+unsigned long             __RPC_USER  BSTR_UserSize(     unsigned long *, unsigned long            , BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserMarshal(  unsigned long *, unsigned char *, BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserUnmarshal(unsigned long *, unsigned char *, BSTR * ); 
+void                      __RPC_USER  BSTR_UserFree(     unsigned long *, BSTR * ); 
 
-unsigned long             __RPC_USER  VARIANT_UserSize64(     unsigned long *, unsigned long            , VARIANT * ); 
-unsigned char * __RPC_USER  VARIANT_UserMarshal64(  unsigned long *, unsigned char *, VARIANT * ); 
-unsigned char * __RPC_USER  VARIANT_UserUnmarshal64(unsigned long *, unsigned char *, VARIANT * ); 
-void                      __RPC_USER  VARIANT_UserFree64(     unsigned long *, VARIANT * ); 
+unsigned long             __RPC_USER  LPSAFEARRAY_UserSize(     unsigned long *, unsigned long            , LPSAFEARRAY * ); 
+unsigned char * __RPC_USER  LPSAFEARRAY_UserMarshal(  unsigned long *, unsigned char *, LPSAFEARRAY * ); 
+unsigned char * __RPC_USER  LPSAFEARRAY_UserUnmarshal(unsigned long *, unsigned char *, LPSAFEARRAY * ); 
+void                      __RPC_USER  LPSAFEARRAY_UserFree(     unsigned long *, LPSAFEARRAY * ); 
+
+unsigned long             __RPC_USER  BSTR_UserSize64(     unsigned long *, unsigned long            , BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserMarshal64(  unsigned long *, unsigned char *, BSTR * ); 
+unsigned char * __RPC_USER  BSTR_UserUnmarshal64(unsigned long *, unsigned char *, BSTR * ); 
+void                      __RPC_USER  BSTR_UserFree64(     unsigned long *, BSTR * ); 
+
+unsigned long             __RPC_USER  LPSAFEARRAY_UserSize64(     unsigned long *, unsigned long            , LPSAFEARRAY * ); 
+unsigned char * __RPC_USER  LPSAFEARRAY_UserMarshal64(  unsigned long *, unsigned char *, LPSAFEARRAY * ); 
+unsigned char * __RPC_USER  LPSAFEARRAY_UserUnmarshal64(unsigned long *, unsigned char *, LPSAFEARRAY * ); 
+void                      __RPC_USER  LPSAFEARRAY_UserFree64(     unsigned long *, LPSAFEARRAY * ); 
 
 /* end of Additional Prototypes */
 

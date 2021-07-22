@@ -6,7 +6,6 @@
 #include "resource.h"
 #include "SimpleServer_i.h"
 #include <iostream>
-#include <winrt/base.h>
 
 using namespace ATL;
 
@@ -26,7 +25,6 @@ CSimpleServerModule _AtlModule;
 extern "C" int WINAPI _tWinMain(HINSTANCE /*hInstance*/, HINSTANCE /*hPrevInstance*/,
 								LPTSTR /*lpCmdLine*/, int nShowCmd)
 {
-	winrt::init_apartment(winrt::apartment_type::multi_threaded);
 	return _AtlModule.WinMain(nShowCmd);
 }
 

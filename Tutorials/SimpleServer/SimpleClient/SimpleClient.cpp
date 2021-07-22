@@ -17,7 +17,7 @@ int main()
             CComPtr<IMessageBox> cpMessage;
             hr = CoCreateInstance(CLSID_MessageBoxClass, NULL, CLSCTX_LOCAL_SERVER, IID_IMessageBox, (void**)&cpMessage);
             CComVariant var(L"HELLO");
-            hr = cpMessage->Show(var);
+            hr = cpMessage->CaptureSample();
         }
         CoUninitialize();
     }

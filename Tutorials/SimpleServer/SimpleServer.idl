@@ -6,10 +6,21 @@
 
 import "oaidl.idl";
 import "ocidl.idl";
+
+typedef struct
+{
+	BSTR line;
+	int curPos;
+} IDLCaptureResult;
+
 [object, uuid(59371D05-3025-4E52-AF88-977B219F0E97)]
 interface IMessageBox : IUnknown
 {
-	HRESULT Show([in]VARIANT szText);
+	HRESULT InitApartment();
+	HRESULT InitWCapture(BSTR lang);
+	HRESULT CaptureSample();
+	HRESULT Capture([in]SAFEARRAY(UINT) img, DWORD imgLength, [in]int xPos, [in]int yPos, [out]IDLCaptureResult* result);
+	HRESULT CapturePointer([in]unsigned char* img, DWORD imgLength, [in]int xPos, [in]int yPos, [out]IDLCaptureResult* result);
 };
 
 [
