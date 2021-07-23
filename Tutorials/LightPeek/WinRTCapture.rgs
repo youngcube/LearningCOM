@@ -1,0 +1,15 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {8586f96d-29e3-4bdc-aa3b-84d645f4fb58} = s 'WinRTCapture class'
+		{
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{f36e690c-830d-4fb8-9fd0-f6beb44376f3}'
+			Version = s '1.0'
+		}
+	}
+}

@@ -8,11 +8,30 @@ import "oaidl.idl";
 import "ocidl.idl";
 
 [
+	object,
+	uuid(6fbddf61-0143-4c35-a5f2-a8cc96888341),
+	oleautomation
+]
+interface IWinRTCapture : IUnknown
+{
+	HRESULT InitApartment();
+	HRESULT InitWCapture([in]VARIANT lang);
+	HRESULT Capture([in]SAFEARRAY(UINT) img, DWORD imgLength, [in]int xPos, [in]int yPos, [out]VARIANT* line, [out]VARIANT* curPos);
+};
+[
 	uuid(f36e690c-830d-4fb8-9fd0-f6beb44376f3),
 	version(1.0),
 ]
 library LightPeekLib
 {
 	importlib("stdole2.tlb");
+	[
+		uuid(8586f96d-29e3-4bdc-aa3b-84d645f4fb58)
+	]
+	coclass WinRTCapture
+	{
+		[default] interface IWinRTCapture;
+	};
 };
 
+import "shobjidl.idl";
