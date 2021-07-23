@@ -1,0 +1,36 @@
+// ATLProject14.idl : IDL source for ATLProject14
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (ATLProject14.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(23cea8f7-f130-4984-80f6-a0c919ff4bde),
+	pointer_default(unique),
+	oleautomation
+]
+interface ILightPeek : IUnknown
+{
+	HRESULT Print();
+};
+[
+	uuid(416eceb9-9e00-427d-8ec1-04c45fc0a66f),
+	version(1.0),
+]
+library ATLProject14Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(4f56ff29-a760-4282-bb48-619e9d49ba43)
+	]
+	coclass LightPeek
+	{
+		[default] interface ILightPeek;
+	};
+};
+
+import "shobjidl.idl";

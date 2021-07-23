@@ -1,0 +1,15 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {4f56ff29-a760-4282-bb48-619e9d49ba43} = s 'LightPeek class'
+		{
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{416eceb9-9e00-427d-8ec1-04c45fc0a66f}'
+			Version = s '1.0'
+		}
+	}
+}
