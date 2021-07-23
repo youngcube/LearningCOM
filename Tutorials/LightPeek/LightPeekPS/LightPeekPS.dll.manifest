@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<assembly xmlns="urn:schemas-microsoft-com:asm.v1" manifestVersion="1.0">
+<assemblyIdentity version="1.0.0.0" name="LightPeekPS" type="win32" />
+
+<file name="LightPeekPS.dll">
+<comClass clsid="{4f56ff29-a760-4282-bb48-619e9d49ba43}" />
+<typelib tlbid="{416eceb9-9e00-427d-8ec1-04c45fc0a66f}" version="1.0" helpdir=""/>
+</file>
+
+<comInterfaceExternalProxyStub name="ILightPeek" iid="{23cea8f7-f130-4984-80f6-a0c919ff4bde}" proxyStubClsid32="{00020424-0000-0000-C000-000000000046}" tlbid="{416eceb9-9e00-427d-8ec1-04c45fc0a66f}" />
+
+</assembly>
